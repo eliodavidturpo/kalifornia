@@ -30,7 +30,7 @@ a {
 
 .navbar {
     width: 100%;
-    height: 80px;
+    min-height: 80px;
 
     display: flex;
     align-items: center;
@@ -86,7 +86,7 @@ a {
 
 
 /* =========================
-   HERO
+   HERO / PORTADA
 ========================= */
 
 .hero {
@@ -95,40 +95,89 @@ a {
     margin-top: 80px;
 
     display: flex;
+    align-items: center;
 
     position: relative;
 
-    align-items: center;
-
     padding: 80px 8%;
 
-    background:
-        linear-gradient(
-            90deg,
-            rgba(0,0,0,0.8),
-            rgba(0,0,0,0.2)
-        ),
-        url("images/hero-roja.jpg");
+    overflow: hidden;
 
-    background-size: cover;
-    background-position: center;
+    background: #111111;
 
     color: white;
 }
 
+
+/* IMAGEN DE LA PORTADA */
+
+.hero-image {
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+    object-position: center;
+
+    z-index: 0;
+
+    opacity: 1;
+
+    transition: opacity 0.6s ease;
+}
+
+
+/* OSCURECIMIENTO DE LA IMAGEN */
+
+.hero::after {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background: linear-gradient(
+        90deg,
+        rgba(0, 0, 0, 0.8),
+        rgba(0, 0, 0, 0.2)
+    );
+
+    z-index: 1;
+
+    pointer-events: none;
+}
+
+
+/* CONTENIDO DE LA PORTADA */
+
 .hero-content {
     max-width: 600px;
+
+    position: relative;
+
+    z-index: 2;
 }
 
 .small-title {
     font-size: 14px;
     letter-spacing: 5px;
+
     margin-bottom: 20px;
 }
 
 .hero h1 {
     font-size: clamp(45px, 7vw, 90px);
+
     line-height: 0.95;
+
     font-weight: 900;
 
     margin-bottom: 25px;
@@ -180,8 +229,7 @@ a {
 .category-container {
     display: grid;
 
-    grid-template-columns:
-        repeat(3, 1fr);
+    grid-template-columns: repeat(3, 1fr);
 
     gap: 20px;
 }
@@ -203,6 +251,7 @@ a {
     background-position: center;
 
     position: relative;
+
     overflow: hidden;
 
     transition: transform 0.5s ease;
@@ -250,11 +299,14 @@ a {
     transform: translateY(-10px);
 }
 
+
+/* IMAGEN HOMBRES */
+
 .hombres {
     background:
         linear-gradient(
             transparent,
-            rgba(0,0,0,.8)
+            rgba(0, 0, 0, 0.8)
         ),
         url("images/hombres.jpg");
 
@@ -262,11 +314,14 @@ a {
     background-position: center;
 }
 
+
+/* IMAGEN MUJERES */
+
 .mujeres {
     background:
         linear-gradient(
             transparent,
-            rgba(0,0,0,.8)
+            rgba(0, 0, 0, 0.8)
         ),
         url("images/mujeres.jpg");
 
@@ -274,11 +329,14 @@ a {
     background-position: center;
 }
 
+
+/* IMAGEN FÚTBOL */
+
 .futbol {
     background:
         linear-gradient(
             transparent,
-            rgba(0,0,0,.8)
+            rgba(0, 0, 0, 0.8)
         ),
         url("images/futbol.jpg");
 
@@ -305,19 +363,20 @@ a {
 
 .section-title p {
     font-size: 13px;
+
     letter-spacing: 4px;
 }
 
 .section-title h2 {
     font-size: 40px;
+
     margin-top: 10px;
 }
 
 .product-container {
     display: grid;
 
-    grid-template-columns:
-        repeat(3, 1fr);
+    grid-template-columns: repeat(3, 1fr);
 
     gap: 25px;
 }
@@ -384,6 +443,7 @@ a {
     border: none;
 
     background: #111;
+
     color: white;
 
     cursor: pointer;
@@ -399,7 +459,7 @@ a {
 
 
 /* =========================
-   SECCIONES CATEGORÍAS
+   SECCIONES DE CATEGORÍAS
 ========================= */
 
 .category-section {
@@ -472,38 +532,14 @@ footer {
 
 
 /* =========================
-       CRÉDITOS EN CELULAR
-    ========================= */
-
-    .hero-credits {
-        bottom: 18px;
-
-        padding: 0 20px;
-
-        gap: 6px;
-
-        font-size: 10px;
-
-        line-height: 1.4;
-
-        flex-direction: column;
-    }
-
-    .hero-credits span {
-        white-space: normal;
-    }
-
-    .hero-credits span + span::before {
-        display: none;
-    }
-/* =========================
-   TEXTO DENTRO DE LA PORTADA
+   CRÉDITOS DE LA PORTADA
 ========================= */
 
 .hero-credits {
     position: absolute;
 
     bottom: 22px;
+
     left: 0;
 
     width: 100%;
@@ -518,6 +554,7 @@ footer {
     color: rgba(255, 255, 255, 0.92);
 
     font-size: 12px;
+
     font-weight: 400;
 
     letter-spacing: 0.5px;
@@ -526,20 +563,24 @@ footer {
 
     z-index: 5;
 
-    text-shadow: 0 1px 5px rgba(0, 0, 0, 0.7);
+    text-shadow:
+        0 1px 5px rgba(0, 0, 0, 0.7);
 }
 
 .hero-credits span {
     white-space: nowrap;
 }
 
-/* Pequeña línea elegante entre los dos textos */
+
+/* Línea entre los créditos */
+
 .hero-credits span + span::before {
     content: "";
 
     display: inline-block;
 
     width: 1px;
+
     height: 12px;
 
     background: rgba(255, 255, 255, 0.5);
@@ -549,57 +590,87 @@ footer {
     vertical-align: middle;
 }
 
+
 /* =========================================================
    DISEÑO RESPONSIVO PARA CELULARES Y TABLETS
-   ========================================================= */
+========================================================= */
 
 @media (max-width: 768px) {
 
-    /* NAVBAR */
+    /* =========================
+       NAVBAR
+    ========================= */
+
     .navbar {
         height: auto;
+
         min-height: 72px;
+
         padding: 12px 16px 10px;
+
         flex-wrap: wrap;
+
         gap: 0;
     }
 
     .logo {
         font-size: 22px;
+
         letter-spacing: 2px;
     }
 
     .cart-button {
         font-size: 19px;
+
         margin-left: auto;
+
         padding: 4px 2px;
     }
 
     .menu {
         order: 3;
+
         flex-basis: 100%;
+
         width: 100%;
+
         display: flex;
+
         justify-content: space-between;
         align-items: center;
+
         gap: 6px;
+
         padding-top: 11px;
+
         margin-top: 10px;
+
         border-top: 1px solid #eeeeee;
     }
 
     .menu a {
         font-size: 13px;
+
         white-space: nowrap;
+
         padding: 3px 4px;
     }
 
-    /* PORTADA */
+
+    /* =========================
+       PORTADA
+    ========================= */
+
     .hero {
         margin-top: 120px;
+
         min-height: 650px;
+
         padding: 70px 24px 100px;
-        background-position: center;
+    }
+
+    .hero-image {
+        object-position: center;
     }
 
     .hero-content {
@@ -608,6 +679,7 @@ footer {
 
     .hero h1 {
         font-size: clamp(42px, 12vw, 58px);
+
         line-height: 0.98;
     }
 
@@ -619,12 +691,20 @@ footer {
         padding: 16px 26px;
     }
 
+
+    /* CRÉDITOS */
+
     .hero-credits {
         bottom: 18px;
+
         padding: 0 20px;
+
         gap: 5px;
+
         flex-direction: column;
+
         font-size: 10px;
+
         line-height: 1.4;
     }
 
@@ -636,31 +716,46 @@ footer {
         display: none;
     }
 
-    /* CATEGORÍAS */
+
+    /* =========================
+       CATEGORÍAS
+    ========================= */
+
     .categories {
         padding: 70px 24px;
     }
 
     .categories h2 {
         font-size: 38px;
+
         line-height: 1.05;
+
         margin-bottom: 38px;
     }
 
     .category-container {
         grid-template-columns: 1fr;
+
         gap: 18px;
     }
 
     .category-card {
         width: 100%;
+
         height: 400px;
+
         min-width: 0;
+
         font-size: 30px;
+
         padding: 28px;
     }
 
-    /* PRODUCTOS */
+
+    /* =========================
+       PRODUCTOS
+    ========================= */
+
     .products {
         padding: 70px 24px;
     }
@@ -671,16 +766,19 @@ footer {
 
     .section-title h2 {
         font-size: 34px;
+
         line-height: 1.1;
     }
 
     .product-container {
         grid-template-columns: 1fr;
+
         gap: 24px;
     }
 
     .product-card {
         width: 100%;
+
         min-width: 0;
     }
 
@@ -694,6 +792,7 @@ footer {
 
     .product-info h3 {
         font-size: 24px;
+
         line-height: 1.15;
     }
 
@@ -707,13 +806,20 @@ footer {
 
     .product-info button {
         width: 100%;
+
         padding: 16px;
+
         font-size: 14px;
     }
 
-    /* SECCIONES DE CATEGORÍAS */
+
+    /* =========================
+       SECCIONES DE CATEGORÍAS
+    ========================= */
+
     .category-section {
         min-height: 350px;
+
         padding: 70px 24px;
     }
 
@@ -721,23 +827,32 @@ footer {
         font-size: 45px;
     }
 
-    /* FOOTER */
+
+    /* =========================
+       FOOTER
+    ========================= */
+
     footer {
         padding: 60px 24px;
     }
 
     .socials {
         flex-wrap: wrap;
+
         gap: 18px;
     }
 }
 
 
-/* CELULARES PEQUEÑOS */
+/* =========================================================
+   CELULARES PEQUEÑOS
+========================================================= */
+
 @media (max-width: 400px) {
 
     .navbar {
         padding-left: 12px;
+
         padding-right: 12px;
     }
 
@@ -745,15 +860,24 @@ footer {
         font-size: 20px;
     }
 
+    .menu {
+        gap: 3px;
+    }
+
     .menu a {
         font-size: 12px;
+
         padding: 3px 2px;
     }
 
+
     .hero {
         margin-top: 116px;
+
         min-height: 620px;
+
         padding-left: 20px;
+
         padding-right: 20px;
     }
 
@@ -761,16 +885,21 @@ footer {
         font-size: 43px;
     }
 
+
     .categories,
     .products {
         padding-left: 20px;
+
         padding-right: 20px;
     }
 
+
     .category-card {
         height: 360px;
+
         font-size: 27px;
     }
+
 
     .product-image {
         height: 290px;
