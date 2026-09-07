@@ -127,6 +127,8 @@ a {
 
     opacity: 1;
 
+    filter: brightness(1.25) contrast(1.05);
+
     transition: opacity 0.6s ease;
 }
 
