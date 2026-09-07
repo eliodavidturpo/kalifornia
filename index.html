@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Kalifornia | Zapatillas</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- =========================
+         BARRA DE NAVEGACIÓN
+    ========================== -->
+
+    <header class="navbar">
+
+        <div class="logo">
+            KALIFORNIA
+        </div>
+
+        <nav class="menu">
+
+            <a href="#inicio">Inicio</a>
+            <a href="#hombres">Hombres</a>
+            <a href="#mujeres">Mujeres</a>
+            <a href="#futbol">Fútbol</a>
+
+        </nav>
+
+        <button class="cart-button" onclick="mostrarCarrito()">
+            🛒 <span id="contador-carrito">0</span>
+        </button>
+
+    </header>
+
+
+    <!-- =========================
+         INICIO
+    ========================== -->
+
+    <main>
+
+        <section id="inicio" class="hero">
+
+            <div class="hero-content">
+
+                <p class="small-title">
+                    KALIFORNIA
+                </p>
+
+                <h1>
+                    ZAPATILLAS<br>
+                    DE CALIDAD<br>
+                    Y ESTILO
+                </h1>
+
+                <p>
+                    Encuentra tu próximo par.
+                </p>
+
+                <a href="#productos" class="main-button">
+                    VER PRODUCTOS
+                </a>
+
+        </div>
+
+
+        <div class="hero-credits">
+
+            <span>Elio David Turpo</span>
+
+            <span>© 2026 Kalifornia. Todos los derechos reservados.</span>
+
+        </div>
+
+    </section>
+        
+
+
+        <!-- =========================
+             CATEGORÍAS
+        ========================== -->
+
+        <section class="categories">
+
+            <h2>ELIGE TU ESTILO</h2>
+
+            <div class="category-container">
+
+                <a href="#hombres" class="category-card hombres">
+                    <span>HOMBRES</span>
+                </a>
+
+                <a href="#mujeres" class="category-card mujeres">
+                    <span>MUJERES</span>
+                </a>
+
+                <a href="#futbol" class="category-card futbol">
+                    <span>FÚTBOL</span>
+                </a>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             PRODUCTOS
+        ========================== -->
+
+        <section id="productos" class="products">
+
+            <div class="section-title">
+
+                <p>DESCUBRE</p>
+
+                <h2>
+                    PRODUCTOS DESTACADOS
+                </h2>
+
+            </div>
+
+
+            <div class="product-container">
+
+
+                <!-- PRODUCTO 1 -->
+
+                <div class="product-card">
+
+                    <div class="product-image">
+                        <span>PRÓXIMAMENTE</span>
+                    </div>
+
+                    <div class="product-info">
+
+                        <h3>
+                            Zapatilla Kalifornia 01
+                        </h3>
+
+                        <p>
+                            Modelo urbano
+                        </p>
+
+                        <strong>
+                            S/ 99.90
+                        </strong>
+
+                        <button onclick="agregarCarrito()">
+                            AGREGAR AL CARRITO
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <!-- PRODUCTO 2 -->
+
+                <div class="product-card">
+
+                    <div class="product-image">
+                        <span>PRÓXIMAMENTE</span>
+                    </div>
+
+                    <div class="product-info">
+
+                        <h3>
+                            Zapatilla Kalifornia 02
+                        </h3>
+
+                        <p>
+                            Modelo deportivo
+                        </p>
+
+                        <strong>
+                            S/ 129.90
+                        </strong>
+
+                        <button onclick="agregarCarrito()">
+                            AGREGAR AL CARRITO
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <!-- PRODUCTO 3 -->
+
+                <div class="product-card">
+
+                    <div class="product-image">
+                        <span>PRÓXIMAMENTE</span>
+                    </div>
+
+                    <div class="product-info">
+
+                        <h3>
+                            Zapatilla Kalifornia 03
+                        </h3>
+
+                        <p>
+                            Modelo casual
+                        </p>
+
+                        <strong>
+                            S/ 149.90
+                        </strong>
+
+                        <button onclick="agregarCarrito()">
+                            AGREGAR AL CARRITO
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             HOMBRES
+        ========================== -->
+
+        <section id="hombres" class="category-section">
+
+            <h2>HOMBRES</h2>
+
+            <p>
+                Descubre nuestra colección para hombres.
+            </p>
+
+        </section>
+
+
+        <!-- =========================
+             MUJERES
+        ========================== -->
+
+        <section id="mujeres" class="category-section">
+
+            <h2>MUJERES</h2>
+
+            <p>
+                Descubre nuestra colección para mujeres.
+            </p>
+
+        </section>
+
+
+        <!-- =========================
+             FÚTBOL
+        ========================== -->
+
+        <section id="futbol" class="category-section">
+
+            <h2>FÚTBOL</h2>
+
+            <p>
+                Encuentra tus próximas zapatillas de fútbol.
+            </p>
+
+        </section>
+
+    </main>
+
+
+    <!-- =========================
+         PIE DE PÁGINA
+    ========================== -->
+
+    <footer>
+
+        <div class="footer-logo">
+            KALIFORNIA
+        </div>
+
+        <p>
+            Zapatillas de calidad y estilo.
+        </p>
+
+        <div class="socials">
+
+            <a href="#">Facebook</a>
+            <a href="#">Instagram</a>
+            <a href="#">TikTok</a>
+            <a href="#">Gmail</a>
+
+        </div>
+
+        <p class="copyright">
+            © 2026 Kalifornia. Todos los derechos reservados.
+        </p>
+
+    </footer>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
