@@ -146,8 +146,8 @@ a {
 
     background: linear-gradient(
         90deg,
-        rgba(0, 0, 0, 0.8),
-        rgba(0, 0, 0, 0.2)
+        rgba(0, 0, 0, 0.35),
+        rgba(0, 0, 0, 0.05)
     );
 
     z-index: 1;
