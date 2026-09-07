@@ -1,33 +1,53 @@
-// ===============================
-// CARRUSEL DE IMÁGENES DE PORTADA
-// ===============================
+// ========================================
+// CARRUSEL DE IMÁGENES DE LA PORTADA
+// ========================================
 
 const imagenesPortada = [
-    "images/zapatilla roja.jpg",
-    "images/zapatilla azul.jpg",
-    "images/zapatilla negra.jpg"
+    "images/hero-roja.jpg",
+    "images/hero-azul.jpg",
+    "images/hero-negra.jpg"
 ];
 
 let imagenActual = 0;
 
+const hero = document.querySelector(".hero");
+
+// Precargar todas las imágenes
+const imagenesCargadas = [];
+
+imagenesPortada.forEach((ruta) => {
+
+    const img = new Image();
+
+    img.src = ruta;
+
+    imagenesCargadas.push(img);
+
+});
+
+
+// Cambiar imagen
 function cambiarImagenPortada() {
 
-    imagenActual++;
+    const siguiente = (imagenActual + 1) % imagenesPortada.length;
 
-    if (imagenActual >= imagenesPortada.length) {
-        imagenActual = 0;
+    const imagen = imagenesCargadas[siguiente];
+
+    // Solo cambia cuando la imagen ya está cargada
+    if (imagen.complete && imagen.naturalWidth > 0) {
+
+        hero.style.backgroundImage =
+            `linear-gradient(
+                90deg,
+                rgba(0,0,0,0.8),
+                rgba(0,0,0,0.2)
+            ),
+            url("${imagenesPortada[siguiente]}")`;
+
+        imagenActual = siguiente;
     }
-
-    const hero = document.querySelector(".hero");
-
-    hero.style.backgroundImage =
-        `linear-gradient(
-            90deg,
-            rgba(0,0,0,0.8),
-            rgba(0,0,0,0.2)
-        ),
-        url("${imagenesPortada[imagenActual]}")`;
 }
+
 
 // Cambiar cada 10 segundos
 setInterval(cambiarImagenPortada, 10000);
