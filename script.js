@@ -10,54 +10,80 @@ const imagenesPortada = [
 
 let imagenActual = 0;
 
-const hero = document.querySelector(".hero");
+const heroImage = document.getElementById("hero-image");
 
-// Precargar todas las imágenes
+
+// ========================================
+// PRECARGAR LAS IMÁGENES
+// ========================================
+
 const imagenesCargadas = [];
 
 imagenesPortada.forEach((ruta) => {
 
-    const img = new Image();
+    const imagen = new Image();
 
-    img.src = ruta;
+    imagen.src = ruta;
 
-    imagenesCargadas.push(img);
+    imagenesCargadas.push(imagen);
 
 });
 
 
-// Cambiar imagen
+// ========================================
+// CAMBIAR IMAGEN
+// ========================================
+
 function cambiarImagenPortada() {
 
-    const siguiente = (imagenActual + 1) % imagenesPortada.length;
+    const siguiente =
+        (imagenActual + 1) % imagenesPortada.length;
 
-    const imagen = imagenesCargadas[siguiente];
+    const nuevaImagen = imagenesCargadas[siguiente];
 
-    // Solo cambia cuando la imagen ya está cargada
-    if (imagen.complete && imagen.naturalWidth > 0) {
 
-        hero.style.backgroundImage =
-            `linear-gradient(
-                90deg,
-                rgba(0,0,0,0.8),
-                rgba(0,0,0,0.2)
-            ),
-            url("${imagenesPortada[siguiente]}")`;
+    // Comprobar que la imagen está realmente cargada
+    if (
+        nuevaImagen.complete &&
+        nuevaImagen.naturalWidth > 0
+    ) {
 
-        imagenActual = siguiente;
+        // Ocultar suavemente
+        heroImage.style.opacity = "0";
+
+
+        setTimeout(() => {
+
+            // Cambiar la imagen
+            heroImage.src = imagenesPortada[siguiente];
+
+            imagenActual = siguiente;
+
+
+            // Mostrar la nueva imagen
+            heroImage.style.opacity = "1";
+
+        }, 600);
+
     }
+
 }
 
 
-// Cambiar cada 10 segundos
+// ========================================
+// CAMBIAR CADA 10 SEGUNDOS
+// ========================================
+
 setInterval(cambiarImagenPortada, 10000);
 
 
-// ===============================
+
+// ========================================
 // CARRITO
-// ===============================
+// ========================================
 
 let carrito = 0;
+
 
 function agregarCarrito() {
 
@@ -66,7 +92,9 @@ function agregarCarrito() {
     document.getElementById("contador-carrito").textContent = carrito;
 
     alert("Producto agregado al carrito 🛒");
+
 }
+
 
 function mostrarCarrito() {
 
@@ -81,5 +109,7 @@ function mostrarCarrito() {
             carrito +
             " producto(s) en tu carrito."
         );
+
     }
+
 }
