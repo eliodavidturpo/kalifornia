@@ -113,7 +113,6 @@ a {
 
 .hero-image {
     position: absolute;
-
     top: 0;
     left: 0;
 
@@ -124,10 +123,7 @@ a {
     object-position: center;
 
     z-index: 0;
-
     opacity: 1;
-
-    filter: brightness(1.25) contrast(1.05);
 
     transition: opacity 0.6s ease;
 }
