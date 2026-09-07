@@ -1,5 +1,5 @@
 // ========================================
-// CARRUSEL DE IMÁGENES DE LA PORTADA
+// CARRUSEL DE IMÁGENES
 // ========================================
 
 const imagenesPortada = [
@@ -14,24 +14,7 @@ const heroImage = document.getElementById("hero-image");
 
 
 // ========================================
-// PRECARGAR LAS IMÁGENES
-// ========================================
-
-const imagenesCargadas = [];
-
-imagenesPortada.forEach((ruta) => {
-
-    const imagen = new Image();
-
-    imagen.src = ruta;
-
-    imagenesCargadas.push(imagen);
-
-});
-
-
-// ========================================
-// CAMBIAR IMAGEN
+// CARGAR Y CAMBIAR IMAGEN
 // ========================================
 
 function cambiarImagenPortada() {
@@ -39,43 +22,32 @@ function cambiarImagenPortada() {
     const siguiente =
         (imagenActual + 1) % imagenesPortada.length;
 
-    const nuevaImagen = imagenesCargadas[siguiente];
+    const nuevaImagen = new Image();
 
+    nuevaImagen.onload = function () {
 
-    // Comprobar que la imagen está realmente cargada
-    if (
-        nuevaImagen.complete &&
-        nuevaImagen.naturalWidth > 0
-    ) {
+        // Cambiamos directamente la imagen
+        heroImage.src = imagenesPortada[siguiente];
 
-        // Ocultar suavemente
-        heroImage.style.opacity = "0";
+        imagenActual = siguiente;
 
+    };
 
-        setTimeout(() => {
+    nuevaImagen.onerror = function () {
 
-            // Cambiar la imagen
-            heroImage.src = imagenesPortada[siguiente];
+        console.error(
+            "ERROR: No se pudo cargar:",
+            imagenesPortada[siguiente]
+        );
 
-            imagenActual = siguiente;
+    };
 
-
-            // Mostrar la nueva imagen
-            heroImage.style.opacity = "1";
-
-        }, 600);
-
-    }
-
+    nuevaImagen.src = imagenesPortada[siguiente];
 }
 
 
-// ========================================
-// CAMBIAR CADA 10 SEGUNDOS
-// ========================================
-
+// Cambiar cada 10 segundos
 setInterval(cambiarImagenPortada, 10000);
-
 
 
 // ========================================
@@ -84,7 +56,6 @@ setInterval(cambiarImagenPortada, 10000);
 
 let carrito = 0;
 
-
 function agregarCarrito() {
 
     carrito++;
@@ -92,7 +63,6 @@ function agregarCarrito() {
     document.getElementById("contador-carrito").textContent = carrito;
 
     alert("Producto agregado al carrito 🛒");
-
 }
 
 
@@ -111,5 +81,4 @@ function mostrarCarrito() {
         );
 
     }
-
 }
