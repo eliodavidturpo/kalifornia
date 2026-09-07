@@ -3,7 +3,7 @@
 // ========================================
 
 const imagenesPortada = [
-    "images/hero-roja.jpg",
+    "images/hero-pasion.jpg",
     "images/hero-azul.jpg",
     "images/hero-negra.jpg"
 ];
